@@ -1,4 +1,5 @@
 inputButtons = document.querySelectorAll(".input-btn")
+restartBtn = document.getElementById("restart")
 
 const box1 = document.querySelectorAll(".input-btn")[0]
 const box2 = document.querySelectorAll(".input-btn")[1]
@@ -10,10 +11,23 @@ const box7 = document.querySelectorAll(".input-btn")[6]
 const box8 = document.querySelectorAll(".input-btn")[7]
 const box9 = document.querySelectorAll(".input-btn")[8]
 
+let turnCounter = 0
+let winner = null
+let winConditionMet = false
 
 function handleClick(event) {
+    
+    turnCounter++
+    if (turnCounter % 2 === 0) {
+        event.target.textContent = "X"
+        event.target.classList.add("X")
+    } else {
+        event.target.textContent = "O"
+        event.target.classList.add("O")
+    }
+
     console.log(`${event.target.dataset.num} clicked`)
-    event.target.textContent = "X"
+    
     event.target.classList.add("clicked")
     event.target.disabled = true
     checkResult()
@@ -26,45 +40,70 @@ function checkResult() {
         setTimeout (function() {
             inputButtons.forEach(button =>{
                 button.disabled = false
-                button.textContent = "."
+                button.textContent = ""
                 button.classList.remove("clicked")
+                button.classList.remove("X")
+                button.classList.remove("O")
         }, 30000)
         })
         
     } else {
-    
-        if (box1.textContent === box2.textContent && box1.textContent === box3.textContent) {
-            console.log("heyhey")
+        // check horizontals - use for each loop
+        if (box1.classList.value.split(" ")[1] ===  box2.classList.value.split(" ")[1] && box1.classList.value.split(" ")[1] === box3.classList.value.split(" ")[1] && box1.classList.value.split(" ")[2] !== undefined) {
+            winner = box4.classList.value.split(" ")[1]
+            winConditionMet = true
         }
-        if (box4.textContent === box5.textContent && box4.textContent === box6.textContent) {
-            console.log("heyhey")
+        if (box4.classList.value.split(" ")[1] ===  box5.classList.value.split(" ")[1] && box4.classList.value.split(" ")[1] === box6.classList.value.split(" ")[1] && box4.classList.value.split(" ")[2] !== undefined) {
+            winner = box4.classList.value.split(" ")[1]
+            winConditionMet = true
         }
-        if (box7.textContent === box8.textContent && box7.textContent === box9.textContent) {
-            console.log("heyhey")
+        if (box7.classList.value.split(" ")[1] ===  box8.classList.value.split(" ")[1] && box7.classList.value.split(" ")[1] === box9.classList.value.split(" ")[1] && box7.classList.value.split(" ")[2] !== undefined) {
+            winner = box7.classList.value.split(" ")[1]
+            winConditionMet = true
         }
-
-        if (box1.textContent === box4.textContent && box1.textContent === box7.textContent) {
-            console.log("heyhey")
+        // check verticals
+        if (box1.classList.value.split(" ")[1] ===  box4.classList.value.split(" ")[1] && box1.classList.value.split(" ")[1] === box7.classList.value.split(" ")[1] && box1.classList.value.split(" ")[2] !== undefined) {
+            winner = box1.classList.value.split(" ")[1]
+            winConditionMet = true
         }
-        if (box2.textContent === box5.textContent && box2.textContent === box8.textContent) {
-            console.log("heyhey")
+        if (box2.classList.value.split(" ")[1] ===  box5.classList.value.split(" ")[1] && box2.classList.value.split(" ")[1] === box8.classList.value.split(" ")[1] && box2.classList.value.split(" ")[2] !== undefined) {
+            winner = box2.classList.value.split(" ")[1]
+            winConditionMet = true
         }
-        if (box3.textContent === box6.textContent && box3.textContent === box9.textContent) {
-            console.log("heyhey")
+        if (box3.classList.value.split(" ")[1] ===  box6.classList.value.split(" ")[1] && box3.classList.value.split(" ")[1] === box9.classList.value.split(" ")[1] && box3.classList.value.split(" ")[2] !== undefined) {
+            winner = box3.classList.value.split(" ")[1]
+            winConditionMet = true
         }
-
-        if (box1.textContent === box5.textContent && box1.textContent === box9.textContent) {
-            console.log("heyhey")
+        // check diagonals
+        if (box1.classList.value.split(" ")[1] ===  box5.classList.value.split(" ")[1] && box1.classList.value.split(" ")[1] === box9.classList.value.split(" ")[1] && box1.classList.value.split(" ")[2] !== undefined) {
+            winner = box1.classList.value.split(" ")[1]
+            winConditionMet = true
         }
-        if (box3.textContent === box5.textContent && box3.textContent === box7.textContent) {
-            console.log("heyhey")
+        if (box3.classList.value.split(" ")[1] ===  box5.classList.value.split(" ")[1] && box3.classList.value.split(" ")[1] === box3.classList.value.split(" ")[1] && box3.classList.value.split(" ")[2] !== undefined) {
+            winner = box4.classList.value.split(" ")[1]
+            winConditionMet = true
         }
     }
+    if (winConditionMet === true)
+    // display winning page
+    console.log(`The winner is ${winner}`)
 }
 
 
-
+function restart() {
+    inputButtons.forEach(button => {
+        button.disabled = false
+        button.textContent = ""
+        button.classList.remove("clicked")
+        button.classList.remove("X")
+        button.classList.remove("O")
+    })
+    turnCounter = 0
+}
 
 
 inputButtons.forEach(button => {
     button.addEventListener("click", handleClick)})
+
+
+restartBtn.addEventListener("click", restart)
