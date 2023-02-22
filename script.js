@@ -35,7 +35,7 @@ function handleClick(event) {
 
 // check rows if there is a winner
 function checkResult() {
-    
+    // debugger
         
         // check horizontals - use for each loop
         if (box1.classList.value.split(" ")[1] ===  box2.classList.value.split(" ")[1] && box1.classList.value.split(" ")[1] === box3.classList.value.split(" ")[1] && box1.classList.value.split(" ")[2] !== undefined) {
@@ -68,7 +68,7 @@ function checkResult() {
             winner = box1.classList.value.split(" ")[1]
             winConditionMet = true
         }
-        if (box3.classList.value.split(" ")[1] ===  box5.classList.value.split(" ")[1] && box3.classList.value.split(" ")[1] === box3.classList.value.split(" ")[1] && box3.classList.value.split(" ")[2] !== undefined) {
+        if (box3.classList.value.split(" ")[1] ===  box5.classList.value.split(" ")[1] && box3.classList.value.split(" ")[1] === box7.classList.value.split(" ")[1] && box3.classList.value.split(" ")[2] !== undefined) {
             winner = box4.classList.value.split(" ")[1]
             winConditionMet = true
         }
@@ -105,6 +105,7 @@ function handleRestart() {
         button.classList.remove("O")
     })
     turnCounter = 0
+    document.body.style.backgroundColor = "white"
 }
 
 
