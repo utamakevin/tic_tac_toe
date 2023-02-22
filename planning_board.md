@@ -1,5 +1,5 @@
 Grid
-- nine divs in 3x3 arrangement
+- nine divs in 3x3 arrangement - changed to button for disabled attribute
 - same height and width (square)
 - CSS: margin on borders that touch another border. ie. top left div will have visible borders on right and bottom
 

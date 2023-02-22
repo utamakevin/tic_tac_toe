@@ -3,12 +3,13 @@
 }
 
 
-button {
+.input-btn {
     display: inline-block;
     height: 100px;
     width: 100px;
 }
 
-.red {
+
+.clicked {
     background-color: red;
 }
