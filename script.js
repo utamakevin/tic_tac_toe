@@ -1,82 +1,105 @@
 inputButtons = document.querySelectorAll(".input-btn")
 restartBtn = document.getElementById("restart")
-
-const box1 = document.querySelectorAll(".input-btn")[0]
-const box2 = document.querySelectorAll(".input-btn")[1]
-const box3 = document.querySelectorAll(".input-btn")[2]
-const box4 = document.querySelectorAll(".input-btn")[3]
-const box5 = document.querySelectorAll(".input-btn")[4]
-const box6 = document.querySelectorAll(".input-btn")[5]
-const box7 = document.querySelectorAll(".input-btn")[6]
-const box8 = document.querySelectorAll(".input-btn")[7]
-const box9 = document.querySelectorAll(".input-btn")[8]
-
-
-
-// event.target.dataset.num
+p = document.getElementById("message")
+counter = document.getElementById("counter")
+h1 = document.querySelector("h1")
 
 let turnCounter = 0
-let winner = null
-let winConditionMet = false
+let player1 = []
+let player2 = []
+let player1WinCount = 0
+let player2WinCount = 0
+let roundCount = 1
+let allWinCondition = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9],
+    [1,4,7],
+    [2,5,8],
+    [3,6,9],
+    [1,5,9],
+    [3,5,7],
+]
+
 
 function handleClick(event) {
-    
     turnCounter++
+    
     if (turnCounter % 2 === 0) {
-        event.target.textContent = "X"
-        event.target.classList.add("X")   
+        event.target.textContent = "X" 
+        player2.push(Number(event.target.dataset.num))
+        player2.sort(function(a, b){return a-b})
+    
     } else {
         event.target.textContent = "O"
-        event.target.classList.add("O")
+        player1.push(Number(event.target.dataset.num))
+        player1.sort(function(a, b){return a-b})
     }
 
     console.log(`${event.target.dataset.num} clicked`)
-    
     event.target.classList.add("clicked")
     event.target.disabled = true
+
     checkResult()
+    
+    checkDraw()
 }
 
-// check rows if there is a winner
+
+
+
 function checkResult() {
-    // debugger
-        
-        // check horizontals - use for each loop
-        if (box1.classList.value.split(" ")[1] ===  box2.classList.value.split(" ")[1] && box1.classList.value.split(" ")[1] === box3.classList.value.split(" ")[1] && box1.classList.value.split(" ")[2] !== undefined) {
-            winner = box4.classList.value.split(" ")[1]
-            winConditionMet = true
+    let hasAllElems = []
+    let test = null
+
+    if (turnCounter % 2 === 0) {
+        for (i = 0; i < allWinCondition.length; i++) {
+            test = allWinCondition[i].every(element => player2.includes(element))
+            hasAllElems.push(test)
         }
-        if (box4.classList.value.split(" ")[1] ===  box5.classList.value.split(" ")[1] && box4.classList.value.split(" ")[1] === box6.classList.value.split(" ")[1] && box4.classList.value.split(" ")[2] !== undefined) {
-            winner = box4.classList.value.split(" ")[1]
-            winConditionMet = true
+
+    } else {
+        for (i = 0; i < allWinCondition.length; i++) {
+            test = allWinCondition[i].every(element => player1.includes(element))
+            hasAllElems.push(test)
         }
-        if (box7.classList.value.split(" ")[1] ===  box8.classList.value.split(" ")[1] && box7.classList.value.split(" ")[1] === box9.classList.value.split(" ")[1] && box7.classList.value.split(" ")[2] !== undefined) {
-            winner = box7.classList.value.split(" ")[1]
-            winConditionMet = true
+    }
+
+    if(hasAllElems.includes(true)) {
+        processResult()
+
+    } else {
+        return false
+    }
+}
+
+function processResult() {
+    if (turnCounter % 2 === 0) {
+        p.textContent = `The winner is Player 2`
+        document.body.style.backgroundColor = "turquoise"
+        for(button of inputButtons) {
+            button.style.backgroundColor = "turquoise"
         }
-        // check verticals
-        if (box1.classList.value.split(" ")[1] ===  box4.classList.value.split(" ")[1] && box1.classList.value.split(" ")[1] === box7.classList.value.split(" ")[1] && box1.classList.value.split(" ")[2] !== undefined) {
-            winner = box1.classList.value.split(" ")[1]
-            winConditionMet = true
+        player2WinCount++
+
+    } else {
+        p.textContent = `The winner is Player 1`
+        document.body.style.backgroundColor = "tomato"
+        for(button of inputButtons) {
+            button.style.backgroundColor = "tomato"
         }
-        if (box2.classList.value.split(" ")[1] ===  box5.classList.value.split(" ")[1] && box2.classList.value.split(" ")[1] === box8.classList.value.split(" ")[1] && box2.classList.value.split(" ")[2] !== undefined) {
-            winner = box2.classList.value.split(" ")[1]
-            winConditionMet = true
-        }
-        if (box3.classList.value.split(" ")[1] ===  box6.classList.value.split(" ")[1] && box3.classList.value.split(" ")[1] === box9.classList.value.split(" ")[1] && box3.classList.value.split(" ")[2] !== undefined) {
-            winner = box3.classList.value.split(" ")[1]
-            winConditionMet = true
-        }
-        // check diagonals
-        if (box1.classList.value.split(" ")[1] ===  box5.classList.value.split(" ")[1] && box1.classList.value.split(" ")[1] === box9.classList.value.split(" ")[1] && box1.classList.value.split(" ")[2] !== undefined) {
-            winner = box1.classList.value.split(" ")[1]
-            winConditionMet = true
-        }
-        if (box3.classList.value.split(" ")[1] ===  box5.classList.value.split(" ")[1] && box3.classList.value.split(" ")[1] === box7.classList.value.split(" ")[1] && box3.classList.value.split(" ")[2] !== undefined) {
-            winner = box4.classList.value.split(" ")[1]
-            winConditionMet = true
-        }
-    
+        player1WinCount++
+    }
+
+    inputButtons.forEach(button => {
+        button.disabled = true
+    })
+
+    counter.textContent = `${player1WinCount} O ${player2WinCount} X`
+}
+
+
+function checkDraw() {
     if(document.querySelectorAll(".clicked").length === 9) {
         setTimeout (function() {
             inputButtons.forEach(button =>{
@@ -85,17 +108,10 @@ function checkResult() {
                 button.classList.remove("clicked")
                 button.classList.remove("X")
                 button.classList.remove("O")
+                player1 = []
+                player2 = []
             }, 30000)
         })
-    }
-
-    if (winConditionMet === true) {
-    // display winning page
-    console.log(`The winner is ${winner}`)
-        inputButtons.forEach(button => {
-            button.disabled = true
-        })
-    document.body.style.backgroundColor = "blue"
     }
 }
 
@@ -107,15 +123,20 @@ function handleRestart() {
         button.classList.remove("clicked")
         button.classList.remove("X")
         button.classList.remove("O")
+        button.style.backgroundColor = "white"
     })
-    turnCounter = 0
+
     document.body.style.backgroundColor = "white"
-    winConditionMet = false
+
+    player1 = [] 
+    player2 = [] 
+    
+    roundCount++
+    h1.textContent = `TIC TAC TOE | Round ${roundCount}`
 }
 
 
 inputButtons.forEach(button => {
     button.addEventListener("click", handleClick)})
-
 
 restartBtn.addEventListener("click", handleRestart)
