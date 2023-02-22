@@ -11,6 +11,10 @@ const box7 = document.querySelectorAll(".input-btn")[6]
 const box8 = document.querySelectorAll(".input-btn")[7]
 const box9 = document.querySelectorAll(".input-btn")[8]
 
+
+
+// event.target.dataset.num
+
 let turnCounter = 0
 let winner = null
 let winConditionMet = false
@@ -20,7 +24,7 @@ function handleClick(event) {
     turnCounter++
     if (turnCounter % 2 === 0) {
         event.target.textContent = "X"
-        event.target.classList.add("X")
+        event.target.classList.add("X")   
     } else {
         event.target.textContent = "O"
         event.target.classList.add("O")
@@ -106,6 +110,7 @@ function handleRestart() {
     })
     turnCounter = 0
     document.body.style.backgroundColor = "white"
+    winConditionMet = false
 }
 
 

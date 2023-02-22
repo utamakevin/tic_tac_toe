@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    border: none
+    border: 1px solid red
 }
 
 h1 {
@@ -16,6 +16,8 @@ div {
 
 main {
     align-content: center;
+    display: contents;
+    text-align: center;
 }
 
 
