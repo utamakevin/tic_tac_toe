@@ -1,7 +1,7 @@
 Grid
-- nine divs in 3x3 arrangement (actually 5x5 for later surprise)
-- same height and width (square).
-- CSS: margin on borders that touch another border. ie. top left div will have visible borders on right and bottom.
+- nine divs in 3x3 arrangement
+- same height and width (square)
+- CSS: margin on borders that touch another border. ie. top left div will have visible borders on right and bottom
 
 User Input
 - images in divs (Xs and Os)
