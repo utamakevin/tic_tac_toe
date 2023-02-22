@@ -1,14 +1,14 @@
-inputBoxes = document.querySelectorAll(".inputBox")
+inputBoxes = document.querySelectorAll("button")
 
-const box1 = document.querySelectorAll(".inputBox")[0]
-const box2 = document.querySelectorAll(".inputBox")[1]
-const box3 = document.querySelectorAll(".inputBox")[2]
-const box4 = document.querySelectorAll(".inputBox")[3]
-const box5 = document.querySelectorAll(".inputBox")[4]
-const box6 = document.querySelectorAll(".inputBox")[5]
-const box7 = document.querySelectorAll(".inputBox")[6]
-const box8 = document.querySelectorAll(".inputBox")[7]
-const box9 = document.querySelectorAll(".inputBox")[8]
+const box2 = document.querySelectorAll("button")[1]
+const box1 = document.querySelectorAll("button")[0]
+const box3 = document.querySelectorAll("button")[2]
+const box4 = document.querySelectorAll("button")[3]
+const box5 = document.querySelectorAll("button")[4]
+const box6 = document.querySelectorAll("button")[5]
+const box7 = document.querySelectorAll("button")[6]
+const box8 = document.querySelectorAll("button")[7]
+const box9 = document.querySelectorAll("button")[8]
 
 
 
@@ -48,6 +48,13 @@ function checkResult() {
         console.log("heyhey")
     }
    
+    // for (item of list) {
+    //     if (item.textContent !== unclicked) {
+    //         //draw
+    //         //reset
+    //     }
+    // }
+    // if 
 }
 
 
