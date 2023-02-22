@@ -35,19 +35,8 @@ function handleClick(event) {
 
 // check rows if there is a winner
 function checkResult() {
-    // debugger
-    if(document.querySelectorAll(".clicked").length === 9) {
-        setTimeout (function() {
-            inputButtons.forEach(button =>{
-                button.disabled = false
-                button.textContent = ""
-                button.classList.remove("clicked")
-                button.classList.remove("X")
-                button.classList.remove("O")
-        }, 30000)
-        })
+    
         
-    } else {
         // check horizontals - use for each loop
         if (box1.classList.value.split(" ")[1] ===  box2.classList.value.split(" ")[1] && box1.classList.value.split(" ")[1] === box3.classList.value.split(" ")[1] && box1.classList.value.split(" ")[2] !== undefined) {
             winner = box4.classList.value.split(" ")[1]
@@ -83,14 +72,31 @@ function checkResult() {
             winner = box4.classList.value.split(" ")[1]
             winConditionMet = true
         }
+    
+    if(document.querySelectorAll(".clicked").length === 9) {
+        setTimeout (function() {
+            inputButtons.forEach(button =>{
+                button.disabled = false
+                button.textContent = ""
+                button.classList.remove("clicked")
+                button.classList.remove("X")
+                button.classList.remove("O")
+            }, 30000)
+        })
     }
-    if (winConditionMet === true)
+
+    if (winConditionMet === true) {
     // display winning page
     console.log(`The winner is ${winner}`)
+        inputButtons.forEach(button => {
+            button.disabled = true
+        })
+    document.body.style.backgroundColor = "blue"
+    }
 }
 
 
-function restart() {
+function handleRestart() {
     inputButtons.forEach(button => {
         button.disabled = false
         button.textContent = ""
@@ -106,4 +112,4 @@ inputButtons.forEach(button => {
     button.addEventListener("click", handleClick)})
 
 
-restartBtn.addEventListener("click", restart)
+restartBtn.addEventListener("click", handleRestart)

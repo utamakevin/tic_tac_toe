@@ -1,12 +1,21 @@
 * {
-    border: 1px solid red
+    box-sizing: border-box;
+    border: none
 }
 
+h1 {
+    text-align: center;
+}
 div {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     width: fit-content;
+    text-align: center;
 
+}
+
+main {
+    align-content: center;
 }
 
 
@@ -14,10 +23,75 @@ div {
     display: inline-block;
     height: 100px;
     width: 100px;
+    font-size: 70px;
 }
 
-
-.clicked {
-    background-color: mistyrose;
+button {
+    background-color: white;
 }
 
+#box1 {
+    border-right: 3px solid gray;
+    border-bottom: 3px solid gray;
+}
+
+#box1 {
+    border-right: 3px solid gray;
+    border-bottom: 3px solid gray;
+}
+
+#box2 {
+    border-left: 3px solid gray;
+    border-right: 3px solid gray;
+    border-bottom: 3px solid gray;
+}
+
+#box3 {
+    border-left: 3px solid gray;
+    border-bottom: 3px solid gray;
+}
+
+#box4 {
+    border-top: 3px solid gray;
+    border-right: 3px solid gray;
+    border-bottom: 3px solid gray;
+}
+
+#box5 {
+    border-top: 3px solid gray;
+    border-right: 3px solid gray;
+    border-bottom: 3px solid gray;
+    border-left: 3px solid gray;
+}
+
+#box6 {
+    border-top: 3px solid gray;
+    border-bottom: 3px solid gray;
+    border-left: 3px solid gray;
+}
+
+#box7 {
+    border-top: 3px solid gray;
+    border-right: 3px solid gray;
+}
+
+#box8 {
+    border-top: 3px solid gray;
+    border-right: 3px solid gray;
+    border-left: 3px solid gray;
+}
+
+#box9 {
+    border-top: 3px solid gray;
+    border-left: 3px solid gray;
+}
+
+#restart {
+    appearance: auto;
+    background-color: buttonface;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+    margin-top: 20px;
+}
