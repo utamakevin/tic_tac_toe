@@ -51,9 +51,6 @@ function handleClick(event) {
     checkDraw()
 }
 
-
-
-
 function checkResult() {
     let hasAllElems = []
     let test = null
