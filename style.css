@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
-    border: none
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 div {
@@ -8,13 +9,16 @@ div {
     grid-template-columns: 1fr 1fr 1fr;
     width: fit-content;
     text-align: center;
+}
 
+#main-wrapper {
+    width: 100%;
+    align-content: center;
 }
 
 main {
-    align-content: center;
-    display: contents;
-    text-align: center;
+    display: block;
+    text-align: left;
     font-size: 18px;
 }
 
@@ -103,4 +107,8 @@ button {
     border-color: buttonborder;
     border-image: initial;
     margin-top: 20px;
+    width: 90px;
+    height: 30px;
+    font-size: large;
+    border-radius: 20px;
 }

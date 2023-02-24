@@ -1,8 +1,10 @@
 inputButtons = document.querySelectorAll(".input-btn")
 restartBtn = document.getElementById("restart")
-p = document.getElementById("message")
+message = document.getElementById("message")
 counter = document.getElementById("counter")
 h1 = document.querySelector("h1")
+
+const clickSound = new Audio("click_sound.wav")
 
 let turnCounter = 0
 let player1 = []
@@ -21,19 +23,23 @@ let allWinCondition = [
     [3,5,7],
 ]
 
+message.textContent = `O's turn`
 
 function handleClick(event) {
     turnCounter++
+    clickSound.play()
     
     if (turnCounter % 2 === 0) {
         event.target.textContent = "X" 
         player2.push(Number(event.target.dataset.num))
         player2.sort(function(a, b){return a-b})
+        message.textContent = `O's turn`
     
     } else {
         event.target.textContent = "O"
         player1.push(Number(event.target.dataset.num))
         player1.sort(function(a, b){return a-b})
+        message.textContent = `X's turn`
     }
 
     console.log(`${event.target.dataset.num} clicked`)
@@ -75,7 +81,7 @@ function checkResult() {
 
 function processResult() {
     if (turnCounter % 2 === 0) {
-        p.textContent = `The winner is Player 2`
+        message.textContent = `The winner is X`
         document.body.style.backgroundColor = "turquoise"
         for(button of inputButtons) {
             button.style.backgroundColor = "turquoise"
@@ -83,7 +89,7 @@ function processResult() {
         player2WinCount++
 
     } else {
-        p.textContent = `The winner is Player 1`
+        message.textContent = `The winner is O`
         document.body.style.backgroundColor = "tomato"
         for(button of inputButtons) {
             button.style.backgroundColor = "tomato"
@@ -95,7 +101,7 @@ function processResult() {
         button.disabled = true
     })
 
-    counter.textContent = `${player1WinCount} O ${player2WinCount} X`
+    counter.textContent = `${player1WinCount} O | ${player2WinCount} X`
 }
 
 
@@ -133,6 +139,11 @@ function handleRestart() {
     
     roundCount++
     h1.textContent = `TIC TAC TOE | Round ${roundCount}`
+    if (turnCounter % 2 === 0) {
+        message.textContent = `O's turn`
+    } else {
+        message.textContent = `X's turn`
+    }
 }
 
 
