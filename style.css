@@ -2,33 +2,48 @@
     box-sizing: border-box;
     border: none;
     font-family: Arial, Helvetica, sans-serif;
+    /* border: 1px solid red */
 }
 
-div {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: fit-content;
+body {
+    align-items: center;
     text-align: center;
 }
 
+
+main div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+}
+
+
 #main-wrapper {
     width: 100%;
+    text-align: center;
     align-content: center;
+    display:grid;
+    grid-template-columns: 1fr;
 }
 
 main {
     display: block;
-    text-align: left;
+    text-align:left;
     font-size: 18px;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 h1 {
-    margin-left: 100px;
+    text-align: center;
 }
 
 p {
     display: inline-block;
     margin-left: 20px;
+    text-align: center;
 }
 
 
