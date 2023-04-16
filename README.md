@@ -14,13 +14,20 @@ Hope you enjoy!
 This game was made with JavaScript.
 
 The logic behind the game is quite straight-forward:
-- When user click on a space - it is marked with either O or X, changing every click.
-- The winning conditions are checked after every move. That is, if there are three markers of a type that are in a line either horizontally, vertically or diagonally.
-- When there is no winner, **the board reset** and the game continues until there is a winner. Why settle for a draw when either of you can collapse or make a mistake in this seemingly never-ending game.
-- When there is a winner, the background colour change depending on the winner. No, you cannot change the colour. I made it, I get to pick the colour.
-- The loser gets to play first in the next round because if you didn't win the first time what are the chances you can win the next one being second?
-- I am not aware of any bugs/issues with the game at the time of writing. But then again I have been squashing bugs left and right in a caffeine-induced rampage for the past couple of hours so I might miss some. Let me know!
-- There is a round counter at the top that changes everytime the game is restarted.
-- There is a prompt at the bottom to keep track of who's turn it is
-- The code was made with minimum repetition (or so I thought). However, there is no value that keeps track of the turns and therefore all logic that involves displaying a player (either X or O) contains two separate statements and thus, repetition. Instead of addressing this, I decided to use the time to fix other logics, such as winning conditions. Have a peek at the code! Feedbacks are always welcome.
-- Click sound is added on player move.
+
+### Generating Player Moves
+- When user click on a tile, it is marked with either O or X. The Xs and Os are text values of the box clicked on that particular turn. Whether the text would be X or O depends on the previous click, alternating between the Xs and Os for every click.
+
+### Winning Conditions
+- The winning condition checks if there are three markers of a type that are in a line either horizontally, vertically or diagonally. The winning conditions are checked after every move.
+- When there is no winner, **the board reset** and the game continues until there is a winner. There will be no draw.
+- When there is a winner, the background colour change depending on the winner.
+
+### Resetting The Board
+- When there is a winner or a draw, the board will reset. In draw situation, the board will automatically reset to continue the game. In winning situation, the board will retain the final placements of markers for players to observe and a restart button will appear.
+- The losing player gets to play first in the next round.
+
+### Miscellaneous Features
+- There is a counter at the top that keeps track of the rounds played.
+- There is a prompt at the bottom that keep track of who's turn it is.
+- Click sound is added on player moves.
