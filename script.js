@@ -87,7 +87,7 @@ function processResult() {
 
     } else {
         message.textContent = `The winner is O`
-        document.body.style.background = "linear-gradient(90deg, rgba(255,99,71,1) 0%, rgba(240,8,8,1) 100%)"
+        document.body.style.background = "linear-gradient(90deg, rgba(255,99,71,1) 0%, rgba(235,78,78,1) 100%)"
         for(button of inputButtons) {
             button.style.backgroundColor = "rgba(0, 0, 0, 0)"
         }
