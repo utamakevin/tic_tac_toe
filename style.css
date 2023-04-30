@@ -1,129 +1,131 @@
 * {
-    box-sizing: border-box;
-    border: none;
-    font-family: Arial, Helvetica, sans-serif;
-    /* border: 1px solid red */
+  box-sizing: border-box;
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+  /* border: 1px solid red */
 }
 
 body {
-    align-items: center;
-    text-align: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(
+    90deg,
+    rgba(252, 175, 67, 1) 0%,
+    rgba(255, 150, 113, 1) 100%
+  );
 }
-
 
 main div {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 100%;
-    text-align: center;
-    align-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  text-align: center;
+  align-content: center;
 }
 
-
 #main-wrapper {
-    width: 100%;
-    text-align: center;
-    align-content: center;
-    display:grid;
-    grid-template-columns: 1fr;
+  width: 100%;
+  text-align: center;
+  align-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 main {
-    display: block;
-    text-align:left;
-    font-size: 18px;
-    width: fit-content;
-    margin: 0 auto;
+  display: block;
+  text-align: left;
+  font-size: 18px;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 p {
-    display: inline-block;
-    margin-left: 20px;
-    text-align: center;
+  display: inline-block;
+  margin-left: 20px;
+  text-align: center;
 }
 
-
 .input-btn {
-    display: inline-block;
-    height: 170px;
-    width: 170px;
-    font-size: 140px;
+  display: inline-block;
+  height: 170px;
+  width: 170px;
+  font-size: 140px;
 }
 
 button {
-    background-color: white;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 #box1 {
-    border-right: 3px solid gray;
-    border-bottom: 3px solid gray;
+  border-right: 3px solid gray;
+  border-bottom: 3px solid gray;
 }
 
 #box1 {
-    border-right: 3px solid gray;
-    border-bottom: 3px solid gray;
+  border-right: 3px solid gray;
+  border-bottom: 3px solid gray;
 }
 
 #box2 {
-    border-left: 3px solid gray;
-    border-right: 3px solid gray;
-    border-bottom: 3px solid gray;
+  border-left: 3px solid gray;
+  border-right: 3px solid gray;
+  border-bottom: 3px solid gray;
 }
 
 #box3 {
-    border-left: 3px solid gray;
-    border-bottom: 3px solid gray;
+  border-left: 3px solid gray;
+  border-bottom: 3px solid gray;
 }
 
 #box4 {
-    border-top: 3px solid gray;
-    border-right: 3px solid gray;
-    border-bottom: 3px solid gray;
+  border-top: 3px solid gray;
+  border-right: 3px solid gray;
+  border-bottom: 3px solid gray;
 }
 
 #box5 {
-    border-top: 3px solid gray;
-    border-right: 3px solid gray;
-    border-bottom: 3px solid gray;
-    border-left: 3px solid gray;
+  border-top: 3px solid gray;
+  border-right: 3px solid gray;
+  border-bottom: 3px solid gray;
+  border-left: 3px solid gray;
 }
 
 #box6 {
-    border-top: 3px solid gray;
-    border-bottom: 3px solid gray;
-    border-left: 3px solid gray;
+  border-top: 3px solid gray;
+  border-bottom: 3px solid gray;
+  border-left: 3px solid gray;
 }
 
 #box7 {
-    border-top: 3px solid gray;
-    border-right: 3px solid gray;
+  border-top: 3px solid gray;
+  border-right: 3px solid gray;
 }
 
 #box8 {
-    border-top: 3px solid gray;
-    border-right: 3px solid gray;
-    border-left: 3px solid gray;
+  border-top: 3px solid gray;
+  border-right: 3px solid gray;
+  border-left: 3px solid gray;
 }
 
 #box9 {
-    border-top: 3px solid gray;
-    border-left: 3px solid gray;
+  border-top: 3px solid gray;
+  border-left: 3px solid gray;
 }
 
 #restart {
-    appearance: auto;
-    background-color: buttonface;
-    border-width: 2px;
-    border-style: outset;
-    border-color: buttonborder;
-    border-image: initial;
-    margin-top: 20px;
-    width: 90px;
-    height: 30px;
-    font-size: large;
-    border-radius: 20px;
+  appearance: auto;
+  background-color: buttonface;
+  border-width: 2px;
+  border-style: outset;
+  border-color: buttonborder;
+  border-image: initial;
+  margin-top: 20px;
+  width: 90px;
+  height: 30px;
+  font-size: large;
+  border-radius: 20px;
 }

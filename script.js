@@ -79,17 +79,17 @@ function checkResult() {
 function processResult() {
     if (turnCounter % 2 === 0) {
         message.textContent = `The winner is X`
-        document.body.style.backgroundColor = "turquoise"
+        document.body.style.background = "linear-gradient(90deg, rgba(64,224,208,1) 0%, rgba(72,184,247,1) 100%)"
         for(button of inputButtons) {
-            button.style.backgroundColor = "turquoise"
+            button.style.backgroundColor = "rgba(0, 0, 0, 0)"
         }
         player2WinCount++
 
     } else {
         message.textContent = `The winner is O`
-        document.body.style.backgroundColor = "tomato"
+        document.body.style.background = "linear-gradient(90deg, rgba(255,99,71,1) 0%, rgba(240,8,8,1) 100%)"
         for(button of inputButtons) {
-            button.style.backgroundColor = "tomato"
+            button.style.backgroundColor = "rgba(0, 0, 0, 0)"
         }
         player1WinCount++
     }
@@ -126,10 +126,10 @@ function handleRestart() {
         button.classList.remove("clicked")
         button.classList.remove("X")
         button.classList.remove("O")
-        button.style.backgroundColor = "white"
+        button.style.backgroundColor = "rgba(0, 0, 0, 0)"
     })
 
-    document.body.style.backgroundColor = "white"
+    document.body.style.background = "linear-gradient(90deg, rgba(252, 175, 67, 1) 0%, rgba(255, 150, 113, 1) 100%)"
 
     player1 = [] 
     player2 = [] 
