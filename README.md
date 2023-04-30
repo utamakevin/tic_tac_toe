@@ -7,7 +7,7 @@ https://pages.git.generalassemb.ly/utamakevin/tic_tac_toe/
 
 Hope you enjoy!
 
-![Screenshot of tic_tac_toe](./app_screenshot2.png)
+![Screenshot of tic_tac_toe](./app_screenshot.png)
 
 ## Now Let's Get Technical
 
